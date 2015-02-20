@@ -4,3 +4,11 @@ use nested hashes to store events under venue
 make sure hashes/events are unique
 use JSON to send scraped info to web page
 create methods for each venue
+
+
+TO BE IMPLEMENTED
+jQueryVersion.js contains the code to prep
+	the JSON data for the HTML file.
+jQuery.html implements JSON and jQuery.
+exhibits.json is where all of the exhibit 
+	data will be stored.
