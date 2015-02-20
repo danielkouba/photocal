@@ -1,0 +1,6 @@
+TODO
+
+use nested hashes to store events under venue
+make sure hashes/events are unique
+use JSON to send scraped info to web page
+create methods for each venue
