@@ -12,27 +12,32 @@ page = Nokogiri::HTML(open(target_url))
 #formats aquired data to be injected into webpage
 link_array = page.css("a.url").map{ |a| "\<a href\=\"" + base_url +  a['href'] + "\"\>" + a.text + "\<\/a\	> \<br \/\>"}
 
-file = File.open("sample.html", "r+")
-page_data = file.read
-file.close
+# file = File.open("sample.html", "r+")
+# page_data = file.read
+# file.close
 
 
-file = File.open("sample.html", "w+")
-page_data.gsub!("<!-- insert point -->","<!-- insert point -->#{link_array.join}")
-file.write(page_data)
-file.close
-`open sample.html`
+# file = File.open("sample.html", "w+")
+# page_data.gsub!("<!-- insert point -->","<!-- insert point -->#{link_array.join}")
+# file.write(page_data)
+# file.close
+# `open sample.html`
 
 # This script implements JSON
 # It needs to check for dupes
 # And rewrite over the whole file -done
 # before implemented
 #
-# file = File.open("exhibits.json", "r+")
-# rb_hash = JSON.parse(file.read)
-# rb_hash["exhibits"] << { "name" => "Nonsense"}
-# rb_json = JSON.pretty_generate(rb_hash)
-# file.close
-# file = File.open("exhibits.json", "w")
-# file.write(rb_json)
-# file.close
+def readFile
+	file = File.open("exhibits.json", "r+")
+	rb_hash = JSON.parse(file.read)
+	rb_hash[0] << { "name" => "Nonsense"}
+	rb_json = JSON.pretty_generate(rb_hash)
+	file.close
+end
+
+def writeFile
+	file = File.open("exhibits.json", "w")
+	file.write(rb_json)
+	file.close
+end
