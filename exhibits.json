@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 [
   {
     "name": "",
     "url": "",
-    "venue": ""
+    "date": ""
   },
   {
     "name": "Portraits and Other Likenesses from SFMOMA",
@@ -30,22 +29,3 @@
     "url": "www.sfmoma.org/exhib_events/exhibitions/582"
   }
 ]
-=======
-{
-  "exhibits": [
-    {
-      "name": "Some exhibit",
-      "url": "www.sfmoma.org",
-      "venue": "SFMOMA"
-    },
-    {
-      "name": "Another exhibit",
-      "url": "www.sfmoma.org",
-      "venue": "SFMOMA"
-    },
-    {
-      "name": "Nonsense"
-    }
-  ]
-}
->>>>>>> f1b9931f7e3fa58508af694937e658c2940d69c3

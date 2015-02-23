@@ -6,7 +6,7 @@
       var $element = $('<li></li>').addClass(person.profession);
       $element.append('<span class="name">' + person.name + '</span>');
       $element.append('<span class="url">' + '<a href="http://' + person.url + '"> go there </a>' + '</span>');
-      $element.append('<span class="venue">' + person.venue + '</span>');
+      $element.append('<span class="date">' + person.date + '</span>');
       $people.append($element);
     }
   };

@@ -16,27 +16,12 @@ link_array = page.css("a.url").map{ |a| "\<a href\=\"" + base_url +  a['href'] +
 # page_data = file.read
 # file.close
 
-
-<<<<<<< HEAD
-# file = File.open("sample.html", "w+")
-# page_data.gsub!("<!-- insert point -->","<!-- insert point -->#{link_array.join}")
-# file.write(page_data)
-# file.close
-# `open sample.html`
-=======
 file = File.open("sample.html", "w+")
 page_data.gsub!("<!-- insert point -->","<!-- insert point -->#{link_array.join}")
 file.write(page_data)
 file.close
 `open sample.html`
->>>>>>> f1b9931f7e3fa58508af694937e658c2940d69c3
 
-# This script implements JSON
-# It needs to check for dupes
-# And rewrite over the whole file -done
-# before implemented
-#
-<<<<<<< HEAD
 def readFile
 	file = File.open("exhibits.json", "r+")
 	rb_hash = JSON.parse(file.read)
@@ -50,13 +35,4 @@ def writeFile
 	file.write(rb_json)
 	file.close
 end
-=======
-# file = File.open("exhibits.json", "r+")
-# rb_hash = JSON.parse(file.read)
-# rb_hash["exhibits"] << { "name" => "Nonsense"}
-# rb_json = JSON.pretty_generate(rb_hash)
-# file.close
-# file = File.open("exhibits.json", "w")
-# file.write(rb_json)
-# file.close
->>>>>>> f1b9931f7e3fa58508af694937e658c2940d69c3
+

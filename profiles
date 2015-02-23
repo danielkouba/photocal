@@ -1,0 +1,22 @@
+profile work
+
+rayko
+	http://raykophotocenter.com/current-show-b
+
+	file = Nokogiri::HTML(open("http://raykophotocenter.com/current-show-b"))
+	file.css("h1.entry-title a").map{|a| a['href']} #url
+	file.css("h1.entry-title a").text #title
+	file.css("div h3 strong").text #date
+
+
+	file = Nokogiri::HTML(open("http://raykophotocenter.com/upcoming-show/"))
+	http://raykophotocenter.com/upcoming-show/ #url
+	file.css("h2").text #title
+	file.css("div h3 strong").text ##date
+	file.css("div h3 strong").text[16...38] ##date exact
+
+Pier24
+	http://pier24.org/exhibition/current.html ##exhibit link
+	
+	file.css("span.exhibit-titles em").text #title
+	file.css("span.exhibition-dates").text  #date
