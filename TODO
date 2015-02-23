@@ -11,4 +11,14 @@ jQueryVersion.js contains the code to prep
 	the JSON data for the HTML file.
 jQuery.html implements JSON and jQuery.
 exhibits.json is where all of the exhibit 
+<<<<<<< HEAD
 	data will be stored.
+=======
+	data will be stored.
+
+TO BE DELETED
+scrape_nk.rb is the base scrape script
+	that demonstrated the use of Nokogiri.
+sample.html is a basic page that simply had space
+	for ruby to inject code.
+>>>>>>> f1b9931f7e3fa58508af694937e658c2940d69c3
