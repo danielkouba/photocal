@@ -1,8 +1,20 @@
 [
   {
-    "name": "",
-    "url": "",
-    "venue": ""
+    "name": "Some exhibit",
+    "url": "www.sfmoma.org",
+    "venue": "SFMOMA"
+  },
+  {
+    "name": "Another exhibit",
+    "url": "www.sfmoma.org",
+    "venue": "SFMOMA"
+  },
+  {
+    "name": "Nonsense"
+  },
+  {
+    "name": "Fertile Ground: Art and Community in California ",
+    "url": "www.sfmoma.org/exhib_events/exhibitions/582"
   },
   {
     "name": "Portraits and Other Likenesses from SFMOMA",
