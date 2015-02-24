@@ -10,17 +10,9 @@ def urlList
 	$url_array = [
 		#sfmoma
 			"http://www.sfmoma.org/exhib_events/calendar?start=20150216&end=20160216&range=day&change-year=2015&category=exhibition",
-			"http://raykophotocenter.com/current-show-b"
-	]
-
-##url_array needs to iterate with script_array in method:scrape
-	$script_array = [
-		#sfmoma
-			proc{ pullHtml($url_array[0]).css("a.url").map{ |a| [a.text , "www.sfmoma.org" + a['href'] ]} },
 		#rayko
-			proc{ pullHtml($url_array[1]).css("h1.entry-title a").map{ |a| [a.text , "www.raykophotocenter.com" + a['href']]}}
-	]
-		
+			"http://raykophotocenter.com/current-show-b"
+	]	
 end
 
 ##get html
@@ -31,19 +23,27 @@ end
 
 
 def scrape
-	y = 0
 	pageHash = []
 	urlList
-	#this line needs to iterate through $script array
-	while y <= ($script_array.length - 1)
-		link_array = $script_array[y].call
-		x = 0
-		while x <= (link_array.length - 1)
-			pageHash << {"name" => "#{link_array[x][0]}", "url" => "#{link_array[x][1]}"}
-			x += 1
-		end
-		y += 1
+	
+	#sfmoma
+	sfmoma = pullHtml($url_array[0])
+	link_array = sfmoma.css("a.url").map{ |a| [a.text , "www.sfmoma.org" + a['href'] ]}
+	#rayko
+	rayko = pullHtml($url_array[1])
+	raykoArray = []
+	raykoArray << rayko.css("h1.entry-title a").map{ |a| a.text} 
+	raykoArray << rayko.css("h1.entry-title a").map{ |a| "www.raykophotocenter.com" + a['href']}
+	raykoArray << [rayko.css("div h3 strong").text[21...47]] #this is not future proof
+
+	link_array += [raykoArray.flatten] 
+	
+	x = 0
+	while x <= (link_array.length - 1)
+		pageHash << {"name" => "#{link_array[x][0]}", "url" => "#{link_array[x][1]}", "date" => "#{link_array[x][2]}"}
+		x += 1
 	end
+
 	return pageHash
 end
 

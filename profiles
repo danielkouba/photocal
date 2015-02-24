@@ -1,26 +1,5 @@
 profile work
 
-
-def urlList
-	##The list of URLs we will be running through
-	$url_array = [
-		#sfmoma
-			"http://www.sfmoma.org/exhib_events/calendar?start=20150216&end=20160216&range=day&change-year=2015&category=exhibition"
-		#rayko
-			"http://raykophotocenter.com/current-show-b"
-	]
-
-##url_array needs to iterate with script_array in method:scrape
-	$script_array = [
-		#sfmoma
-			proc{ pullHtml($url_array[0]).css("a.url").map{ |a| [a.text , "www.sfmoma.org" + a['href']]} },
-		#rayko
-		proc{ pullHtml($url_array[1]).css("h1.entry-title a").map{ |a| [a.text , "www.raykophotocenter.com" + a['href']]}}
-	]
-		
-end
-
-
 rayko
 	http://raykophotocenter.com/current-show-b
 
