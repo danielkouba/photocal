@@ -9,12 +9,16 @@ def urlList
 	##The list of URLs we will be running through
 	$url_array = [
 		#sfmoma
-		[	"http://www.sfmoma.org/exhib_events/calendar?start=20150216&end=20160216&range=day&change-year=2015&category=exhibition"]]
+			"http://www.sfmoma.org/exhib_events/calendar?start=20150216&end=20160216&range=day&change-year=2015&category=exhibition",
+			"http://raykophotocenter.com/current-show-b"
+	]
 
 ##url_array needs to iterate with script_array in method:scrape
 	$script_array = [
 		#sfmoma
-		[	proc{ pullHtml($url_array[0][0]).css("a.url").map{ |a| [a.text , "www.sfmoma.org" + a['href'] ]} } ]
+			proc{ pullHtml($url_array[0]).css("a.url").map{ |a| [a.text , "www.sfmoma.org" + a['href'] ]} },
+		#rayko
+			proc{ pullHtml($url_array[1]).css("h1.entry-title a").map{ |a| [a.text , "www.raykophotocenter.com" + a['href']]}}
 	]
 		
 end
@@ -27,14 +31,18 @@ end
 
 
 def scrape
-	x = 0
+	y = 0
 	pageHash = []
 	urlList
 	#this line needs to iterate through $script array
-	link_array = $script_array[0][0].call
-	while x <= (link_array.length - 1)
-		pageHash << {"name" => "#{link_array[x][0]}", "url" => "#{link_array[x][1]}"}
-		x +=1
+	while y <= ($script_array.length - 1)
+		link_array = $script_array[y].call
+		x = 0
+		while x <= (link_array.length - 1)
+			pageHash << {"name" => "#{link_array[x][0]}", "url" => "#{link_array[x][1]}"}
+			x += 1
+		end
+		y += 1
 	end
 	return pageHash
 end
